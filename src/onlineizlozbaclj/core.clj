@@ -12,6 +12,8 @@
             [selmer.parser :refer :all]
             [onlineizlozbaclj.routes.home :refer [home-routes]]
             [onlineizlozbaclj.routes.loginregistration :refer [log-routes]]
+            [onlineizlozbaclj.routes.userforma :refer [forme-routes]]
+            [onlineizlozbaclj.routes.pas :refer [pas-routes]]
             [ring.middleware.webjars :refer [wrap-webjars]]
             [ring.middleware.flash :refer [wrap-flash]]
             [buddy.auth.backends.session :refer [session-backend]]
@@ -47,7 +49,7 @@
   (route/not-found "Not Found"))
 
 (def app
-  (-> (routes home-routes log-routes app-routes)
+  (-> (routes  home-routes log-routes forme-routes pas-routes app-routes)
       (wrap-json-response)
       (handler/site)
       (wrap-authentication backend)

@@ -1,57 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style>
-	body {
-		  margin: 0;
-		}
-		
-		ul {
-		  list-style-type: none;
-		  margin: 0;
-		  padding: 0;
-		  width: 25%;
-		  background-color: #f1f1f1;
-		  position: fixed;
-		  height: 100%;
-		}
-		
-		li a {
-		  display: block;
-		  color: #000;
-		  padding: 8px 16px;
-		  text-decoration: none;
-		}
-		
-		li a.active {
-		  background-color: #4CAF50;
-		}
-		
-		li a:hover:not(.active) {
-		  background-color: #555;
-		  color: white;
-		}
-		.table{
-		    display:table;
-		    height:50px;
-		    margin: 25px 70px;
-		    table-layout: fixed;
- 				  position: relative;
+ 
+<style>
+	html,body{
+	 background: white;
+	 justify-content: center;
+	 align-items: center;
+	 height: 100%;
+	}
+	
+	.login {
+	  display: inline-block;
+	}
+	/* Footer */
+	.footer {
+	  padding: 20px;
+	  text-align: center;
+	  background: #ddd;
+	}
+	#bg {
+	  position: fixed;
+	  left: 0;
+	  top: 0;
+	  width: 100%;
+	  height: 100%;
+	  background: url("../images/ban1.jpg") no-repeat center center fixed;
+	  background-size: cover;
+	  -webkit-filter: blur(5px);
+	}
+	
+	form {
+	  position: relative;
 	  width: 100%;
 	  margin: 2 auto;
 	  background: rgba(130,130,130,.3);
 	  padding: 40px 40px;
-		}
-		.table-cell{
-		    vertical-align:sub;
-		/*     padding: 5px 0; */
-		    background: #F5F5DC;
-		    text-align: center;
-		    margin: 0 0 0px 0;
-		    font-size: 18px;
-		    color: black;
-		}
-		.table-cell-1{
+	  border: 1px solid;
+	  border-top-color: rgba(255,255,255,.4);
+	  border-left-color: rgba(255,255,255,.4);
+	  border-bottom-color: rgba(60,60,60,.4);
+	  border-right-color: rgba(60,60,60,.4);
+	}
+	
+	form input, form button {
+	  width: 100%;
+	  border: 1px solid;
+	  border-bottom-color: rgba(255,255,255,.5);
+	  border-right-color: rgba(60,60,60,.35);
+	  border-top-color: rgba(60,60,60,.35);
+	  border-left-color: rgba(80,80,80,.45);
+	  background-color: rgba(0,0,0,.2);
+	  background-repeat: no-repeat;
+	  padding: 10px 10px 10px 10px;
+	  letter-spacing: .075em;
+	  color: #fff;
+	  text-shadow: 0 1px 0 rgba(0,0,0,.1);
+	  margin-bottom: 10px;
+	}
+	.table-cell-1{
 		    vertical-align:middle;
 		/*     padding: 5px 0; */
 		    background: #F5F5DC;
@@ -62,95 +69,24 @@
 		    border-style: hidden;
 		    visibility: hidden;
 		}
-				.table-cell-2{
-		    vertical-align:middle;
-		/*     padding: 5px 0; */
-		    background: #F5F5DC;
-		    text-align: center;
-		    margin: 0 0 0px 0;
-		    font-size: 18px;
-		    color: black;
-		    
-    		background-color:#5F9EA0
-		}
-	    .content-pic {
-		    height:90%; /* = 100% - 2*5% padding */
-		    width:90%; /* = 100% - 2*5% padding */
-		
-		}
-	    .content-pic .rs{    
-		    width:auto;
-		    height:auto;
-		    max-height:60%;
-		    max-width:70%;
-		}
-				
-		body {
-		  font-family: Arial, Helvetica, sans-serif;
-		  margin: 0;
-		}
-		
-		
+	form input:focus { background-color: rgba(0,0,0,.4); }
 
-		
-		/* Footer */
-.footer {
-  padding: 20px;
-  text-align: center;
-  background: #ddd;
-}
-		.header h1 {
-		  font-size: 40px;
-		}
-		
-		.navbar {
-		  overflow: hidden;
-		  background-color: #91A3EB;
-		  position: sticky;
-		  position: -webkit-sticky;
-		  top: 0;
-		}
-				
-		.navbar a {
-		  float: left;
-		  display: block;
-		  color: white;
-		  text-align: center;
-		  padding: 14px 20px;
-		  text-decoration: none;
-		}
-		
-		.navbar a.right {
-		  float: right;
-		}
-		
-		.navbar a:hover {
-		  background-color: #ddd;
-		  color: black;
-		}
-		
-		.navbar a.active {
-		  background-color: #666;
-		  color: white;
-		}
-		label.btn {
-    padding: 10 0;
-    white-space: normal;
-    -webkit-transform: scale(1.0);
-    -moz-transform: scale(1.0);
-    -o-transform: scale(1.0);
-    -webkit-transition-duration: .3s;
-    -moz-transition-duration: .3s;
-    -o-transition-duration: .3s;
-}
-
-btn.btn:hover {
-/*     text-shadow: 0 3px 2px rgba(0,0,0,0.4); */
-    color:black;
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -o-transform: scale(1.1)
-}
+	
+	::-webkit-input-placeholder { color: #ccc;  }
+	::-moz-placeholder { color: #ccc;  }
+	:-ms-input-placeholder { color: #ccc;  }
+	
+	form button[type=submit] {
+	  color: #3f898a;
+	  text-shadow: 0 1px 0 #133d3e;
+	  text-transform: uppercase;
+	  background: #ffdf80;
+	  border-top-color: #9fb5b5;
+	  border-left-color: #608586;
+	  border-bottom-color: #1b4849;
+	  border-right-color: #1e4d4e;
+	  cursor: pointer;
+	}
 .header {
   padding: 80px;
   text-align: center;
@@ -357,10 +293,43 @@ btn.btn:hover {
 		float: none;
 	}
 }	
+			
 		
+		.header h1 {
+		  font-size: 40px;
+		}
+		
+		.navbar {
+		  overflow: hidden;
+		  background-color: #91A3EB;
+		  position: sticky;
+		  position: -webkit-sticky;
+		  top: 0;
+		}
+		
+		.navbar a {
+		  float: left;
+		  display: block;
+		  color: white;
+		  text-align: center;
+		  padding: 14px 20px;
+		  text-decoration: none;
+		}
+		
+		.navbar a.right {
+		  float: right;
+		}
+		
+		.navbar a:hover {
+		  background-color: #ddd;
+		  color: black;
+		}
+		
+		.navbar a.active {
+		  background-color: #666;
+		  color: white;
+		}
 </style>
-
-   
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -370,7 +339,8 @@ btn.btn:hover {
 	<link rel="stylesheet" href="css/footer-distributed-with-contact-form.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
-<title>Izlozbe</title>
+
+	
    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
    <link href='http://fonts.googleapis.com/css?family=Stint+Ultra+Condensed' rel='stylesheet' type='text/css'>
    <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
@@ -381,48 +351,97 @@ btn.btn:hover {
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
    <meta charset="ISO-8859-1">
+     <script>
 
+     function editPas() {
+    	 
+		    var params = new FormData();
+		    params.append("pasID", $("#pasID").val());
+		    params.append("ime", $("#ime").val());
+		    params.append("boja", $("#boja").val());
+		    params.append("rasa", $("#rasa").val());
+		    params.append("sampion", $("#sampion").val());
+		    params.append("slika", $("#slika").val());
+		    params.append("opis", $("#opis").val());
+		    params.append("vlasnikID", $("#vlasnikID").val());
+		    
+		    $.ajax({
+		        type: "PUT",
+		        url: "/pas",
+		        data: params,
+		        dataType: 'json',
+		        processData: false,
+		        contentType: false,
+		        success: function(data) {
+		        	
+		        	 window.location = "/pretragavl";
+		        }
+		    });
+		
+		}
+		
+		function deleteStan(stanID) {
+		    $.ajax({
+		        type: "DELETE",
+		        url: "/pas",
+		        data: {
+		            pasID: pasID
+		        },
+		        dataType: 'json',
+		        success: function(data) {
+		            window.location = "/pretragavl";
+		        }
+		    });
+		}
+   
+   </script>
+<title>Izmeni psa</title>
 </head>
 <body>
 		<div class="header">
-		  <h1>Zdravo {{logged.imePrezime}}!</h1>
+		  <h1>Dobrodosao {{logged.imePrezime}}!</h1>
+		<h3> Izmeni psa </h3>
 		</div>
 		
 		<div class="navbar">
-		 <a href="/psi">Ucesnici</a>
-          <a href="/pretraga">Pretraga pasa</a>
-          <a href="/projekti">izlozbe</a>
-          <a href="/pobednici">Pobednici</a>                       
-          <a href="/logout" class="right">Izloguj se sa naloga</a>
+		 <a href="/addpas">Dodaj tvog psa</a>
+         <a href="/pretragavl">Pregled pasa</a>
+         <a href="/addizlozba">Dodaj izlozbu</a>
+         <a href="/pretragaizlozbi">Pregled izlozbi</a>                
+         <a href="/vlogout" class="right">Izloguj se sa naloga</a>
 		</div>
-		{% for i in izlozbe %}
-		<div class="square">
-		   <div class="content-pic">
-		        <div class="table">
-		           
-		        	<div class="table-cell">
-		        		ID izlozbe: {{i.izlobaID}}
-		            </div>
-		            <div class="table-cell">
-		                Tip: {{i.tip}}
-		            </div>
-		            <div class="table-cell">
-		                Naziv: {{i.naziv}}
-		            </div>
-		            <div class="table-cell">
-		                Ime vlasnika-koji je odneo pobedu: {{i.vime}}
-		            </div>
-		            <div class="table-cell">
-		                Grad: {{i.grad}}
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		{% endfor %}
+	<form action="" name="pas"  method="post">
+	ID psa:
+    <input class="table-cell" type="text" name="pasID" id="pasID" value="{{pas.pasID}}" readonly>
+	Ime:
+	 	 <input type="text" name="ime" id="ime" placeholder="ime"  value = "{{pas.ime}}" required autofocus>
+	Boja:
+	     <input type="text" name="boja" id="boja" placeholder="boja"  value = "{{pas.boja}}" required>
+	Rasa:
+	 	 <input type="text" name="rasa" id="rasa" placeholder="rasa"  value = "{{pas.rasa}}" required autofocus>
+	Sampion:
+         <input class="table-cell" type="text" name="sampion" id="sampion" value="{{pas.sampion}}">
+	Slika:
+	 	 <input type="text" name="slika" id="slika" placeholder="slika"  value = "{{pas.slika}}" required autofocus>
+	Opis:
+	     <input type="text" name="opis" id="opis" placeholder="opis"  value = "{{pas.opis}}" required>
+    
+    <input class="table-cell-1" type="text" name="vlasnikID" id="vlasnikID" value="{{logged.vlasnikID}}">
+		            
+	
+	<a href="/vlasnikForma"> Povratak na glavnu formu. </a>	 
+	<div class="form-group form-group-lg pull-right">
+         <input type="button" value="Edit" onclick="editPas({{pas.pasID}})"/>
+         <input type="button" value="Delete" onclick="deletePas({{pas.pasID}})"/>
+    </div>
+    </form>
+    
+    <br>
 <footer class="footer-distributed">
 
 		<div class="footer-left">
-<p class="footer-links">
+
+				<p class="footer-links">
 					<a href="#">Home</a>
 					·
 					<a href="/pretragahome">Pregled pasa</a>
@@ -442,6 +461,7 @@ btn.btn:hover {
 					<a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
 					<a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a>
 					<a href=""><i class="fa fa-github"></i></a>
+
 				</div>
 
 			</div>
@@ -450,12 +470,14 @@ btn.btn:hover {
 
 				<p>Kontaktirajte nas</p>
 
-				<form action="/userForma" method="post">
+				<form action="/vlasnikForma" method="post">
 					<input type="text" name="email" placeholder="Email" />
 					<textarea name="message" placeholder="Message"></textarea>
 					<button class="btn btn-lg btn-primary btn-block" type="submit">Posalji</button>
 				</form>
 			</div>
 </footer>
+	
+
 </body>
 </html>

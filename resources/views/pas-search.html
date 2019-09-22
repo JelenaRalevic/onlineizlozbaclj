@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<style>
 	body {
 		  margin: 0;
@@ -22,7 +23,12 @@
 		  padding: 8px 16px;
 		  text-decoration: none;
 		}
-		
+		/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
 		li a.active {
 		  background-color: #4CAF50;
 		}
@@ -31,59 +37,6 @@
 		  background-color: #555;
 		  color: white;
 		}
-		.table{
-		    display:table;
-		    height:50px;
-		    margin: 25px 70px;
-		    table-layout: fixed;
- 				  position: relative;
-	  width: 100%;
-	  margin: 2 auto;
-	  background: rgba(130,130,130,.3);
-	  padding: 40px 40px;
-		}
-		.table-cell{
-		    vertical-align:sub;
-		/*     padding: 5px 0; */
-		    background: #F5F5DC;
-		    text-align: center;
-		    margin: 0 0 0px 0;
-		    font-size: 18px;
-		    color: black;
-		}
-		.table-cell-1{
-		    vertical-align:middle;
-		/*     padding: 5px 0; */
-		    background: #F5F5DC;
-		    text-align: center;
-		    margin: 0 0 0px 0;
-		    font-size: 18px;
-		    color: black;
-		    border-style: hidden;
-		    visibility: hidden;
-		}
-				.table-cell-2{
-		    vertical-align:middle;
-		/*     padding: 5px 0; */
-		    background: #F5F5DC;
-		    text-align: center;
-		    margin: 0 0 0px 0;
-		    font-size: 18px;
-		    color: black;
-		    
-    		background-color:#5F9EA0
-		}
-	    .content-pic {
-		    height:90%; /* = 100% - 2*5% padding */
-		    width:90%; /* = 100% - 2*5% padding */
-		
-		}
-	    .content-pic .rs{    
-		    width:auto;
-		    height:auto;
-		    max-height:60%;
-		    max-width:70%;
-		}
 				
 		body {
 		  font-family: Arial, Helvetica, sans-serif;
@@ -91,14 +44,6 @@
 		}
 		
 		
-
-		
-		/* Footer */
-.footer {
-  padding: 20px;
-  text-align: center;
-  background: #ddd;
-}
 		.header h1 {
 		  font-size: 40px;
 		}
@@ -133,24 +78,6 @@
 		  background-color: #666;
 		  color: white;
 		}
-		label.btn {
-    padding: 10 0;
-    white-space: normal;
-    -webkit-transform: scale(1.0);
-    -moz-transform: scale(1.0);
-    -o-transform: scale(1.0);
-    -webkit-transition-duration: .3s;
-    -moz-transition-duration: .3s;
-    -o-transition-duration: .3s;
-}
-
-btn.btn:hover {
-/*     text-shadow: 0 3px 2px rgba(0,0,0,0.4); */
-    color:black;
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -o-transform: scale(1.1)
-}
 .header {
   padding: 80px;
   text-align: center;
@@ -370,7 +297,8 @@ btn.btn:hover {
 	<link rel="stylesheet" href="css/footer-distributed-with-contact-form.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
-<title>Izlozbe</title>
+
+   <title>User forma</title>
    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
    <link href='http://fonts.googleapis.com/css?family=Stint+Ultra+Condensed' rel='stylesheet' type='text/css'>
    <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
@@ -382,6 +310,42 @@ btn.btn:hover {
    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
    <meta charset="ISO-8859-1">
 
+<title>Pretraga stanova</title>
+<script>
+function searchPas(text) {
+    $.ajax({
+        type: "GET",
+        url: "/pretraga",
+        data: {
+            text: text
+        },
+        dataType: 'json',
+        success: function(data) {
+            var tableData = "";
+            if (data != null) {
+                for (var i = 0; i < data.length; i++) {
+                     tableData += "<tr>";
+                    tableData += "<tr id='" + data[i].id + " class='clickable-row'>";
+                    tableData += "<td>" + data[i].pasID + "</td>";
+                    tableData += "<td>" + data[i].ime + "</td>";
+                    tableData += "<td>" + data[i].boja + "</td>";
+                    tableData += "<td>" + data[i].rasa + "</td>";
+					tableData += "<td>" + data[i].sampion + "</td>";
+					tableData += "<td>" + data[i].opis+ "</td>";
+                    tableData += "<td>" + data[i].vime + "</td>";
+                    
+                    tableData += "<tr>";
+                   
+                }
+            }
+            $("#table-psi tbody").html(tableData);
+        },
+        error: function(xhr, status, error) {
+            showErrorMessage(xhr.responseText);
+        }
+    });
+}
+</script>
 </head>
 <body>
 		<div class="header">
@@ -389,40 +353,67 @@ btn.btn:hover {
 		</div>
 		
 		<div class="navbar">
-		 <a href="/psi">Ucesnici</a>
+		  <a href="/psi">Psi</a>
           <a href="/pretraga">Pretraga pasa</a>
-          <a href="/projekti">izlozbe</a>
-          <a href="/pobednici">Pobednici</a>                       
+          <a href="/izlozbe">Izlozbe</a>
+          <a href="/pobednici">Izdvojeni psi</a>                       
           <a href="/logout" class="right">Izloguj se sa naloga</a>
 		</div>
-		{% for i in izlozbe %}
-		<div class="square">
-		   <div class="content-pic">
-		        <div class="table">
-		           
-		        	<div class="table-cell">
-		        		ID izlozbe: {{i.izlobaID}}
-		            </div>
-		            <div class="table-cell">
-		                Tip: {{i.tip}}
-		            </div>
-		            <div class="table-cell">
-		                Naziv: {{i.naziv}}
-		            </div>
-		            <div class="table-cell">
-		                Ime vlasnika-koji je odneo pobedu: {{i.vime}}
-		            </div>
-		            <div class="table-cell">
-		                Grad: {{i.grad}}
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		{% endfor %}
+		<div> <p>U narednoj tabeli se nalaze psi koji su kreirani u prethodnom periodu.
+          Pretraga se vrsi prema imenu, boji i rasi.</p></div>     
+		{% block content %}
+
+      <div class="row">
+         <div class="col-lg-12">
+         
+           <br>
+           <br>
+           <input type="text" name="search" placeholder="Pretraga ..." onkeyup="searchStan(this.value);" autofocus/>
+           <br>
+           <br>
+           <table id="table-stanovi" class="table">
+            <thead>
+              <th>ID</th>
+              <th>Lokacija</th>
+              <th>Kvadratura</th>
+              <th>Cena</th>
+              <th>Vlasnik</th>
+              <th>Slobodan</th>
+              <th>Terasa</th>
+              <th>Garaza ili parking</th>
+              <th>Opis</th>
+             </thead>
+             <th>ID</th>
+              <th>Ime</th>
+              <th>Boja</th>
+              <th>Rasa</th>
+              <th>Sampion</th>
+              <th>Opis</th>
+              <th>Vlasnik</th>
+             </thead>
+             <tbody>
+               {% for p in psi %}
+               <tr id="{{p.pasID}}" class="clickable-row">
+               <td>{{p.pasID}}</td>
+               <td>{{p.ime}}</td>
+               <td>{{p.boja}}</td>
+               <td>{{p.rasa}}</td>
+			   <td>{{p.sampion}}</td>
+			   <td>{{p.opis}}</td>
+               <td>{{p.vime}}</td>             
+               </tr>
+               {% endfor %}
+             </tbody>
+           </table>
+
+         </div>
+      </div>
+{% endblock %}
 <footer class="footer-distributed">
 
 		<div class="footer-left">
-<p class="footer-links">
+
+				<p class="footer-links">
 					<a href="#">Home</a>
 					·
 					<a href="/pretragahome">Pregled pasa</a>
@@ -442,6 +433,7 @@ btn.btn:hover {
 					<a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
 					<a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a>
 					<a href=""><i class="fa fa-github"></i></a>
+
 				</div>
 
 			</div>

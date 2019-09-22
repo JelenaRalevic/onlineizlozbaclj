@@ -359,9 +359,10 @@ text-align: justify;
 <div class="navbar">
   <a href="/" class="active">Home</a>
   <a href="/pretragahome">Pregled pasa</a>
-  <a href="/pretragaprojekatahome">Pregled izlozbi</a>
-  <a href="/login" class="right">Login</a>
-  <a href="/logout" class="right">Logout</a>
+  <a href="/pretragaizlozbehome">Pregled izlozbi</a>
+  <a href="/login" class="right">Login usera</a>
+  <a href="/vlogin" class="right">Login vlasnika</a>
+ 
 </div>
 
 <div class="row">
@@ -376,19 +377,22 @@ text-align: justify;
     <div class="fakeimg-center" style="height:300px;"><img src="psi.jpg" alt="steps" height="250" width="350"></div>
 	</div>
   <div class="main">
-    <h2>Statistika</h2>
-    <div class="fakeimg" style="height:200px;">
-    <div class = "div1" style="float: left; width: 200px;"><br> Broj vlasnika <br><br><br><a>{{vlasnici}}</a></div>
-    <div class = "div1" style="float: left; width: 200px;"><br> Broj pasa<br><br><br><a>{{psi}}</a></div>
-    <div class = "div1" style="float: left; width: 200px;"><br> Broj izlobi <br><br><br><a>{{izlozbe}}</a></div>
-    </div>    
-    
-    <p>Statistika naseg sajta i posecenosti.</p>
-    <br>   
 
-    <br><p>Kako biste se registrovali na stranici, ukoliko nemate nalog, potrebnoje da kliknete na dugme Logovanje 
-    u gornjem desnom uglu stranice. Nakon toga je dostupno logovanje za postojece i registracija za nove vlasnike. 
+
+    <br><p>Kako biste se registrovali na stranici, ukoliko nemate nalog, potrebnoje da kliknete na dugme Logovanje usera
+    u gornjem desnom uglu stranice. Nakon toga je dostupno logovanje za postojece i registracija za nove ucesnike/klijente. 
+	Nakon prijave/logIn-a, omoguceno je da gledate pse koji postoje u bazi kao i da oznacite vaseg pobednika.
 	</div>
+	<br>
+    <br>
+    <h2>KAKO DA PRIJAVITE VASEG PSA?</h2>
+    <br>
+    <br>
+    <br><p>Kako biste se registrovali na stranici, ukoliko nemate nalog, potrebnoje da kliknete na dugme Logovanje vlasnika 
+    u gornjem desnom uglu stranice. Nakon toga je dostupno logovanje za postojece i registracija za nove vlasnike. Nakon uspostavljanja
+    naloga, ulaskom na kreiranje Vaseg psa ili kreiranje izlozbe, dobija se mogucnost sacinjavanja izlozbe za Vaseg psa-koji kasnije moze da pobedi i koji je kasnije dostupan u pregledu usera. Ukoliko je potrebno azurirati ili obrisati psa 
+	prvo se ulazi na pregled pasa, a nakon toga klikom na zeljeni entitet, dobija se prikaz samo tog psa, sa mogucnoscu izmene prethodno unetih parametara. </p> 
+
 </div>
 
 <footer class="footer-distributed">
@@ -400,7 +404,7 @@ text-align: justify;
 					·
 					<a href="/pretragahome">Pregled pasa</a>
 					·
-					<a href="/pretragaprojekatahome">Pregled izlozbi</a>
+					<a href="/pretragaizlozbehome">Pregled izlozbi</a>
 					·
 					<a href="/login">Logovanje</a>
 					·

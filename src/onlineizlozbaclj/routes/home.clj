@@ -100,7 +100,7 @@
            (GET "/" request (home-page (:session request)))
            (POST "/" request (send-submit request))
            (GET "/pretragahome" request (search-pas-home request))
-           (GET "/pretragaizlozbihome" request (search-izlozbe-home request)))
+           (GET "/pretragaizlozbehome" request (search-izlozbe-home request)))
 
 
 

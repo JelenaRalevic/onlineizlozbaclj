@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
 <head>	
 		
@@ -13,6 +13,7 @@
 	  font-family: Arial, Helvetica, sans-serif;
 	  margin: 0;
 	}
+	
 	
 	.header {
 	  padding: 80px;
@@ -341,7 +342,6 @@
 		
 		.cell {
 		  display: table-cell;
-		  
 		  padding: 10px;
 		}
 		
@@ -369,49 +369,47 @@
 		<link rel="stylesheet" href="css/footer-distributed-with-contact-form.css">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 		<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
-		   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-   <link href='http://fonts.googleapis.com/css?family=Stint+Ultra+Condensed' rel='stylesheet' type='text/css'>
-   <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
- 
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
-   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+	   <link href='http://fonts.googleapis.com/css?family=Stint+Ultra+Condensed' rel='stylesheet' type='text/css'>
+	   <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
+	   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	 
+	   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+	   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script>
-function searchPas(text) {
-    $.ajax({
-        type: "GET",
-        url: "/pretragahome",
-        data: {
-            text: text
-        },
-        dataType: 'json',
-        success: function(data) {
-            var tableData = "";
-            if (data != null) {
-                for (var i = 0; i < data.length; i++) {
-                    tableData += "<tr>";
-                    tableData += "<tr id='" + data[i].id + " class='clickable-row'>";
-                    tableData += "<td>" + data[i].pasID + "</td>";
-                    tableData += "<td>" + data[i].ime + "</td>";
-                    tableData += "<td>" + data[i].rasa + "</td>";
-                    tableData += "<td>" + data[i].boja + "</td>";
-					tableData += "<td>" + data[i].sampion + "</td>";
-                    tableData += "<td>" + data[i].vime + "</td>";
-					tableData += "<td>" + data[i].opis + "</td>";
-                    tableData += "<tr>";
-                }
-            }
-            $("#table-psi tbody").html(tableData);
-        },
-        error: function(xhr, status, error) {
-            showErrorMessage(xhr.responseText);
-        }
-    });
-}
-</script>
-<title>Pretraga pasa</title>
+	function searchIzlozba(text) {
+	    $.ajax({
+	        type: "GET",
+	        url: "/pretragaizlozbehome",
+	        data: {
+	            text: text
+	        },
+	        dataType: 'json',
+	        success: function(data) {
+	            var tableData = "";
+	            if (data != null) {
+	                for (var i = 0; i < data.length; i++) {
+	                    tableData += "<tr>";
+	                    tableData += "<tr id='" + data[i].id + " class='clickable-row'>";
+	                    tableData += "<td>" + data[i].izlozbaID + "</td>";
+	                    tableData += "<td>" + data[i].tip + "</td>";
+	                    tableData += "<td>" + data[i].naziv + "</td>";
+	                    tableData += "<td>" + data[i].grad + "</td>";
+	                    tableData += "<td>" + data[i].vime + "</td>";
+	                    tableData += "<tr>";
+	                }
+	            }
+	            $("#table-izlozbe tbody").html(tableData);
+	        },
+	        error: function(xhr, status, error) {
+	            showErrorMessage(xhr.responseText);
+	        }
+	    });
+	}
+	</script>
+<title>Pretraga izlozbi</title>
 </head>
 <body>
 		<div class="header">
@@ -426,43 +424,35 @@ function searchPas(text) {
 		  <a href="/logout" class="right">Logout</a>
 		
 		</div>
-		<div> <p>U narednoj tabeli se nalaze psi koji su dodati u prethodnom periodu.
-         Pretraga se vrsi prema imenu,boji i rasi.</p></div>     
-        <div class="row">
-         <div class="col-lg-12">
-         <br>
-         <br>
-           <input type="text" name="search" placeholder="Pretraga ..." onkeyup="searchPas(this.value);" autofocus/>
+      <div class="row">
+      <br>
+      <br>
+           <input type="text" name="search" placeholder="Pretraga ..." onkeyup="searchIzlozba(this.value);" autofocus/>
            <br>
            <br>
-           <table id="table-psi" class="table">
+           <table id="table-izlozbe" class="table">
             <thead>
               <th>ID</th>
-              <th>Ime</th>
-              <th>Rasa</th>
-              <th>Boja</th>
-              <th>Sampion</th>
-              <th>Vlasnik</th>
-              <th>Opis</th>
-             </thead>
+              <th>Tip</th>
+              <th>Naziv</th>
+              <th>Grad</th>
+              <th>Vlasnik koji je pobedio</th>
+ 			 </thead>
+ 			  
              <tbody>
-               {% for p in psi %}
-               <tr id="{{p.pasID}}" class="clickable-row">
-               <td>{{p.pasID}}</td>
-               <td>{{p.ime}}</td>
-               <td>{{p.rasa}}</td>
-               <td>{{p.boja}}</td>
-			   <td>{{p.sampion}}</td>
-               <td>{{p.vime}}</td>		        
-		       <td>{{p.opis}}</td>              
+              {% for i in izlozbe %}
+               <tr id="{{i.projekatID}}" class="clickable-row">
+               <td>{{i.izlozbaID}}</td>
+               <td>{{i.tip}}</td>
+			   <td>{{i.naziv}}</td>
+               <td>{{i.grad}}</td>
+               <td>{{i.vime}}</td>                            
                </tr>
                {% endfor %}
+              
              </tbody>
-           </table>
-
+             </table>  
          </div>
-      </div>
-
 <footer class="footer-distributed">
 
 		<div class="footer-left">

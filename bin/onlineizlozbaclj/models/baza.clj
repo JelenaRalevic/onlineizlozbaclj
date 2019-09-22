@@ -42,6 +42,16 @@
   (k/update user
             (k/set-fields params)
             (k/where {:id (:id params)})))
+(defn search-user [text]
+  (k/select user
+            (k/where (or
+                       {:userID text}
+                       {:imePrezime text}
+                       {:username text}
+                       {:password text}
+                       {:email text}
+                       {:rola text}))
+            (k/order :userID :ASC)))
 
 
 (k/defentity pas

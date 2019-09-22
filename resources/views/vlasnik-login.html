@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head><style>
+<head>
+<style>
 	body {
-	  background: #6C7FCD;
+	  background: #999;
 	  padding: 40px;
 	}
 	html,body{
-	background-image: url("pozadina.png");
+	 background-image: url("pozadina.jpg");
 	 display: flex;
 	 flex-dorection: column;
 	 justify-content: center;
@@ -49,13 +50,14 @@
 	  background-repeat: no-repeat;
 	  padding: 10px 10px 10px 10px;
 	  letter-spacing: .075em;
-	  color: #fff;
+	  color: black;
 	  text-shadow: 0 1px 0 rgba(0,0,0,.1);
 	  margin-bottom: 10px;
 	}
 	
 	form input:focus { background-color: rgba(0,0,0,.4); }
-		form input.username {
+	
+	form input.username {
 	  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAMCAYAAAC9QufkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6M0YwNDIzMTQ3QzIzMTFFMjg3Q0VFQzhDNTgxMTRCRTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6M0YwNDIzMTU3QzIzMTFFMjg3Q0VFQzhDNTgxMTRCRTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozRjA0MjMxMjdDMjMxMUUyODdDRUVDOEM1ODExNEJFNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDozRjA0MjMxMzdDMjMxMUUyODdDRUVDOEM1ODExNEJFNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsOChsgAAADUSURBVHjaYvz///9JBgYGMwbSwSkGoOafQPwKiAOBmIEIHAXED0H6QJwPQGwAxE+AOJOAxnwgvgfEKiB9MM0gWg6IbwNxIw6NXUB8HogloHwUzSAsBAoDIJ4DxMxQMRA9H4gPADE/kloMzSCsBcR/gHgj1LAt0HBRR1P3gQktBA2AeBcQZwHxCyB+AsT3gTgFKq6FohrJZnssoW6AxPaDBqoZurP9oBrtCYS2ExA/h9JgzX+gAsZExrMZVP0fmGZ1IjWiBCoL0NsXgPgGGcnzLECAAQD5y8iZ2Z69IwAAAABJRU5ErkJggg==);
 	  background-position: 220px 10px;
 	}
@@ -82,7 +84,7 @@
 	}
 </style>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-   <title>Registracija</title>
+
    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
    <link href='http://fonts.googleapis.com/css?family=Stint+Ultra+Condensed' rel='stylesheet' type='text/css'>
    <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
@@ -93,43 +95,25 @@
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <meta charset="ISO-8859-1">
-<title>Registracija</title>
+<title>Logovanje</title>
 <script>
    var validator;
    $(function() {
-	    validator = $("form[name='user']").validate({
+	    validator = $("form[name='vlasnik']").validate({
 	        rules: {
-	            imePrezime: {
-	                required: true
-	            },
 	            username: {
 	                required: true
 	            },
 	            password: {
 	                required: true
-	            },
-	            email: {
-	                required: true
-	            },
-				role : {
-					required: true
-				}
+	            }
 	        },
 	        messages: {
-	            imePrezime: {
-	                required: "Potrebno je da se unesu ime i prezime"
-	            },
 	            username: {
 	                required: "Potrebno je da se unese username"
 	            },
 	            password: {
 	                required: "Potrebno je da se unese password"
-	            },
-	            email: {
-	                required: "Potrebno je da se unese email"
-	            },
-				role: {
-	                required: "Potrebno je da se unese uloga"
 	            }
 	        },
 	        submitHandler: function(form) {
@@ -139,30 +123,19 @@
 	});
    </script>
 </head>
+
 <body>
-            <form action="" name="user" method="post">
-            
-               <div class="form-group form-group-lg">
-                  <input type="text" name="imePrezime" id="imePrezime" placeholder="ImePrezime"  value = "{{imePrezime}}" />
-               </div>
-               <div class="form-group form-group-lg">
-                  <input type="text" name="username" id="username" placeholder="Username" value = "{{username}}"  />
-               </div>
-               <div class="form-group form-group-lg">
-                  <input type="password" name="password" id="password" placeholder="Password" value = "{{password}}" />
-               </div>
-               <div class="form-group form-group-lg">
-                  <input type="text" name="email" id="email" placeholder="Email" value = "{{email}}"/>
-               </div>
-			   <div class="form-group form-group-lg">
-                  <input type="text" name="role" id="role" placeholder="Role" value = "{{role}}"  />
-               </div>
-               <button type="submit">Registruj se</button>
-               <br>
-		       Ukoliko vec imate nalog, mozete da se ulogujete<a href="/login"> ovde</a>.
-		       <br>
-		       Povratak na home stranu je <a href="/">ovde</a>.
-            </form>
+	<form action="" name="vlasnik"  method="post">
+	 	 <input type="text" name="username" id="username" class="form-control username" placeholder="Username"
+	               required autofocus>
+	     <input type="password" name="password" id="password" class="form-control pass" placeholder="Password"
+	               required>
+	     <button class="btn btn-lg btn-primary btn-block" type="submit"> Log in </button>
+	     	<br>
+		    Ukoliko nemate nalog, mozete da se registrujete<a href="/vregistration"> ovde</a>.
+		    <br>
+		    Povratak na home stranu je <a href="/">ovde</a>.
+    </form>
 
 </body>
 </html>

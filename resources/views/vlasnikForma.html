@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<style>
 	body {
 		  margin: 0;
 		}
 		
 		ul {
+		top: 0;
 		  list-style-type: none;
 		  margin: 0;
 		  padding: 0;
 		  width: 25%;
 		  background-color: #f1f1f1;
-		  position: fixed;
 		  height: 100%;
 		}
-		
+		/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
 		li a {
 		  display: block;
 		  color: #000;
@@ -31,58 +37,10 @@
 		  background-color: #555;
 		  color: white;
 		}
-		.table{
-		    display:table;
-		    height:50px;
-		    margin: 25px 70px;
-		    table-layout: fixed;
- 				  position: relative;
-	  width: 100%;
-	  margin: 2 auto;
-	  background: rgba(130,130,130,.3);
-	  padding: 40px 40px;
-		}
-		.table-cell{
-		    vertical-align:sub;
-		/*     padding: 5px 0; */
-		    background: #F5F5DC;
-		    text-align: center;
-		    margin: 0 0 0px 0;
-		    font-size: 18px;
-		    color: black;
-		}
-		.table-cell-1{
-		    vertical-align:middle;
-		/*     padding: 5px 0; */
-		    background: #F5F5DC;
-		    text-align: center;
-		    margin: 0 0 0px 0;
-		    font-size: 18px;
-		    color: black;
-		    border-style: hidden;
-		    visibility: hidden;
-		}
-				.table-cell-2{
-		    vertical-align:middle;
-		/*     padding: 5px 0; */
-		    background: #F5F5DC;
-		    text-align: center;
-		    margin: 0 0 0px 0;
-		    font-size: 18px;
-		    color: black;
-		    
-    		background-color:#5F9EA0
-		}
-	    .content-pic {
-		    height:90%; /* = 100% - 2*5% padding */
-		    width:90%; /* = 100% - 2*5% padding */
-		
-		}
-	    .content-pic .rs{    
-		    width:auto;
-		    height:auto;
-		    max-height:60%;
-		    max-width:70%;
+		.navigation {
+		   
+		    top: 0;
+		    width: 100%;
 		}
 				
 		body {
@@ -91,66 +49,6 @@
 		}
 		
 		
-
-		
-		/* Footer */
-.footer {
-  padding: 20px;
-  text-align: center;
-  background: #ddd;
-}
-		.header h1 {
-		  font-size: 40px;
-		}
-		
-		.navbar {
-		  overflow: hidden;
-		  background-color: #91A3EB;
-		  position: sticky;
-		  position: -webkit-sticky;
-		  top: 0;
-		}
-				
-		.navbar a {
-		  float: left;
-		  display: block;
-		  color: white;
-		  text-align: center;
-		  padding: 14px 20px;
-		  text-decoration: none;
-		}
-		
-		.navbar a.right {
-		  float: right;
-		}
-		
-		.navbar a:hover {
-		  background-color: #ddd;
-		  color: black;
-		}
-		
-		.navbar a.active {
-		  background-color: #666;
-		  color: white;
-		}
-		label.btn {
-    padding: 10 0;
-    white-space: normal;
-    -webkit-transform: scale(1.0);
-    -moz-transform: scale(1.0);
-    -o-transform: scale(1.0);
-    -webkit-transition-duration: .3s;
-    -moz-transition-duration: .3s;
-    -o-transition-duration: .3s;
-}
-
-btn.btn:hover {
-/*     text-shadow: 0 3px 2px rgba(0,0,0,0.4); */
-    color:black;
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -o-transform: scale(1.1)
-}
 .header {
   padding: 80px;
   text-align: center;
@@ -357,20 +255,89 @@ btn.btn:hover {
 		float: none;
 	}
 }	
+			
 		
-</style>
-
-   
+		.header h1 {
+		  font-size: 40px;
+		}
+		
+		.navbar {
+		  overflow: hidden;
+		  background-color: #91A3EB;
+		  position: sticky;
+		  position: -webkit-sticky;
+		  top: 0;
+		}
+		
+		.navbar a {
+		  float: left;
+		  display: block;
+		  color: white;
+		  text-align: center;
+		  padding: 14px 20px;
+		  text-decoration: none;
+		}
+		
+		.navbar a.right {
+		  float: right;
+		}
+		
+		.navbar a:hover {
+		  background-color: #ddd;
+		  color: black;
+		}
+		
+		.navbar a.active {
+		  background-color: #666;
+		  color: white;
+		}
+		.row {  
+		  display: -ms-flexbox; /* IE10 */
+		  display: flex;
+		  -ms-flex-wrap: wrap; /* IE10 */
+		  flex-wrap: wrap;
+		}
+		
+		/* Create two unequal columns that sits next to each other */
+		/* Sidebar/left column */
+		.side {
+		  -ms-flex: 30%; /* IE10 */
+		  flex: 30%;
+		  background-color: #f1f1f1;
+		  padding: 20px;
+		}
+		
+		/* Main column */
+		.main {   
+		  -ms-flex: 70%; /* IE10 */
+		  flex: 70%;
+		  background-color: white;
+		  padding: 20px;
+		}
+		
+		/* Fake image, just for this example */
+		.fakeimg-center {
+		  width: 100%;
+		  padding: 20px;
+		  display: block;
+		}
+		.fakeimg {
+		  background-color: white;
+		  width: 100%;
+		  padding: 20px;
+		.column {
+		  float: left;
+		  width: 33.33%;
+		  padding: 5px;
+		}
+   </style>
+	
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="keywords" content="footer, contact, form, icons" />
-    <link rel="stylesheet" href="css/demo.css">
+   <title>Glavna forma</title>
+      <link rel="stylesheet" href="css/demo.css">
 	<link rel="stylesheet" href="css/footer-distributed-with-contact-form.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
-<title>Izlozbe</title>
    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
    <link href='http://fonts.googleapis.com/css?family=Stint+Ultra+Condensed' rel='stylesheet' type='text/css'>
    <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
@@ -389,40 +356,29 @@ btn.btn:hover {
 		</div>
 		
 		<div class="navbar">
-		 <a href="/psi">Ucesnici</a>
-          <a href="/pretraga">Pretraga pasa</a>
-          <a href="/projekti">izlozbe</a>
-          <a href="/pobednici">Pobednici</a>                       
-          <a href="/logout" class="right">Izloguj se sa naloga</a>
+		 <a href="/addpas">Dodaj tvog psa</a>
+         <a href="/pretragavl">Pregled pasa</a>
+         <a href="/addizlozba">Dodaj izlozbu</a>
+         <a href="/pretragaizlozbi">Pregled izlozbi</a>                
+         <a href="/vlogout" class="right">Izloguj se sa naloga</a>
 		</div>
-		{% for i in izlozbe %}
-		<div class="square">
-		   <div class="content-pic">
-		        <div class="table">
-		           
-		        	<div class="table-cell">
-		        		ID izlozbe: {{i.izlobaID}}
-		            </div>
-		            <div class="table-cell">
-		                Tip: {{i.tip}}
-		            </div>
-		            <div class="table-cell">
-		                Naziv: {{i.naziv}}
-		            </div>
-		            <div class="table-cell">
-		                Ime vlasnika-koji je odneo pobedu: {{i.vime}}
-		            </div>
-		            <div class="table-cell">
-		                Grad: {{i.grad}}
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		{% endfor %}
+ <div class="row">
+  <div class="column">
+    <div class="fakeimg-center" style="height:300px;"><img src="homepage.jpg" alt="steps" height="250" width="340"></div>
+  </div>
+  <div class="column">
+    <div class="fakeimg-center" style="height:300px;"><img src="smart.jpg" alt="steps" height="250" width="340"></div>
+  </div>
+  <div class="column">
+    <div class="fakeimg-center" style="height:300px;"><img src="pogled.jpg" alt="steps" height="250" width="340"></div>
+  </div>
+  
+</div>
 <footer class="footer-distributed">
 
 		<div class="footer-left">
-<p class="footer-links">
+
+				<p class="footer-links">
 					<a href="#">Home</a>
 					·
 					<a href="/pretragahome">Pregled pasa</a>
@@ -442,6 +398,7 @@ btn.btn:hover {
 					<a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
 					<a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a>
 					<a href=""><i class="fa fa-github"></i></a>
+
 				</div>
 
 			</div>
@@ -450,7 +407,7 @@ btn.btn:hover {
 
 				<p>Kontaktirajte nas</p>
 
-				<form action="/userForma" method="post">
+				<form action="/vlasnikForma" method="post">
 					<input type="text" name="email" placeholder="Email" />
 					<textarea name="message" placeholder="Message"></textarea>
 					<button class="btn btn-lg btn-primary btn-block" type="submit">Posalji</button>
