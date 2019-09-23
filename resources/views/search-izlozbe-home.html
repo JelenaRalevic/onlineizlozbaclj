@@ -436,12 +436,12 @@
               <th>Tip</th>
               <th>Naziv</th>
               <th>Grad</th>
-              <th>Vlasnik koji je pobedio</th>
+              <th>Vlasnik</th>
  			 </thead>
  			  
              <tbody>
               {% for i in izlozbe %}
-               <tr id="{{i.projekatID}}" class="clickable-row">
+               <tr id="{{i.izlozbaID}}" class="clickable-row">
                <td>{{i.izlozbaID}}</td>
                <td>{{i.tip}}</td>
 			   <td>{{i.naziv}}</td>
@@ -473,10 +473,7 @@
 
 				<div class="footer-icons">
 
-					<a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
-					<a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
-					<a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a>
-					<a href=""><i class="fa fa-github"></i></a>
+					<a href="https://github.com/JelenaRalevic/onlineizlozbaclj"><i class="fa fa-github"></i></a>
 
 				</div>
 

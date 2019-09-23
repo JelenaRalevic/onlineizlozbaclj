@@ -49,7 +49,7 @@
       (empty? user)
       (get-login-page "Unesite kredencijale")
       :else
-      (assoc (redirect "/"):session (assoc session :identity user)))))
+      (assoc (redirect "/userForma"):session (assoc session :identity user)))))
 
 (defn vlasnik-login-page-submit [{:keys [params session]}]
   (let [vlasnik (get-vlasnik-by-username-from-db params)]
@@ -83,7 +83,7 @@
   (render-file "views/registration.html" {:title "Registrovanje"
                                           :error error}))
 (defn add-user-to-db [params]
-  (-> (db/add-user (assoc params :role "vlasnik"))))
+  (-> (db/add-user (assoc params :rola "user"))))
 
 (defn registration-page-submit [{:keys [params session]}]	
   (let [user (get-user-by-username-from-db params)]

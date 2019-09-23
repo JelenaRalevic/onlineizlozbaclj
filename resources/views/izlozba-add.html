@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
- 
 <style>
 	html,body{
 	 background: white;
@@ -13,12 +12,7 @@
 	.login {
 	  display: inline-block;
 	}
-	/* Footer */
-	.footer {
-	  padding: 20px;
-	  text-align: center;
-	  background: #ddd;
-	}
+	
 	#bg {
 	  position: fixed;
 	  left: 0;
@@ -58,17 +52,7 @@
 	  text-shadow: 0 1px 0 rgba(0,0,0,.1);
 	  margin-bottom: 10px;
 	}
-	.table-cell-1{
-		    vertical-align:middle;
-		/*     padding: 5px 0; */
-		    background: #F5F5DC;
-		    text-align: center;
-		    margin: 0 0 0px 0;
-		    font-size: 18px;
-		    color: black;
-		    border-style: hidden;
-		    visibility: hidden;
-		}
+	
 	form input:focus { background-color: rgba(0,0,0,.4); }
 
 	
@@ -87,6 +71,12 @@
 	  border-right-color: #1e4d4e;
 	  cursor: pointer;
 	}
+		body {
+		  font-family: Arial, Helvetica, sans-serif;
+		  margin: 0;
+		}
+		
+		
 .header {
   padding: 80px;
   text-align: center;
@@ -292,8 +282,7 @@
 	.footer-distributed form button{
 		float: none;
 	}
-}	
-			
+}		
 		
 		.header h1 {
 		  font-size: 40px;
@@ -329,6 +318,12 @@
 		  background-color: #666;
 		  color: white;
 		}
+		/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
 </style>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta charset="utf-8">
@@ -351,79 +346,72 @@
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
    <meta charset="ISO-8859-1">
-     <script>
-
-     function editPas() {
-    	 
-		    var params = new FormData();
-		    params.append("pasID", $("#pasID").val());
-		    params.append("ime", $("#ime").val());
-		    params.append("boja", $("#boja").val());
-		    params.append("rasa", $("#rasa").val());
-		    params.append("sampion", $("#sampion").val());
-		    params.append("slika", $("#slika").val());
-		    params.append("opis", $("#opis").val());
-		    params.append("vlasnikID", $("#vlasnikID").val());
-		    
-		    $.ajax({
-		        type: "PUT",
-		        url: "/pas",
-		        data: params,
-		        dataType: 'json',
-		        processData: false,
-		        contentType: false,
-		        success: function(data) {
-		        	
-		        	 window.location = "/pretragavl";
-		        }
-		    });
-		
-		}
-		
-		
-   
+   <title>Kreiraj izlozbu</title>
+   <script>
+   var validator;
+   $(function() {
+	    validator = $("form[name='projekat']").validate({
+	        rules: {
+	            tip: {
+	                required: true
+	            },
+	            naziv: {
+	                required: true
+	            },
+	            grad: {
+	                required: true
+	            },
+	            vlasnikID: {
+	                required: true
+	            }
+	        },
+	        messages: {
+	            tip: {
+	                required: "Potrebno je da se unese tip"
+	            },
+	            naziv: {
+	                required: "Potrebno je da se unese naziv"
+	            },
+	            grad: {
+	                required: "Potrebno je da se unese grad"
+	            },
+	            vlasnikID: {
+	                required: "Potrebno je da se unese id vlasnika"
+	            }
+	        },
+	        submitHandler: function(form) {
+	            form.submit();
+	        }
+	    });
+	});
    </script>
-<title>Izmeni psa</title>
 </head>
+
 <body>
-		<div class="header">
-		  <h1>Dobrodosao {{logged.imePrezime}}!</h1>
-		<h3> Izmeni psa </h3>
+	<div class="header">
+		  <h1>Kreiranje izlozbe</h1>
 		</div>
-		
-		<div class="navbar">
+	  <div class="navbar">
 		 <a href="/addpas">Dodaj tvog psa</a>
          <a href="/pretragavl">Pregled pasa</a>
          <a href="/addizlozba">Dodaj izlozbu</a>
          <a href="/pretragaizlozbi">Pregled izlozbi</a>                
          <a href="/vlogout" class="right">Izloguj se sa naloga</a>
 		</div>
-	<form action="" name="pas"  method="post">
-	ID psa:
-    <input class="table-cell" type="text" name="pasID" id="pasID" value="{{pas.pasID}}" readonly>
-	Ime:
-	 	 <input type="text" name="ime" id="ime" placeholder="ime"  value = "{{pas.ime}}" required autofocus>
-	Boja:
-	     <input type="text" name="boja" id="boja" placeholder="boja"  value = "{{pas.boja}}" required>
-	Rasa:
-	 	 <input type="text" name="rasa" id="rasa" placeholder="rasa"  value = "{{pas.rasa}}" required autofocus>
-	Sampion:
-         <input class="table-cell" type="text" name="sampion" id="sampion" value="{{pas.sampion}}">
-	Slika:
-	 	 <input type="text" name="slika" id="slika" placeholder="slika"  value = "{{pas.slika}}" required autofocus>
-	Opis:
-	     <input type="text" name="opis" id="opis" placeholder="opis"  value = "{{pas.opis}}" required>
-    
-    <input class="table-cell-1" type="text" name="vlasnikID" id="vlasnikID" value="{{logged.vlasnikID}}">
-		            
+	<form action="" name="projekat"  method="post">
 	
-	<a href="/vlasnikForma"> Povratak na glavnu formu. </a>	 
-	<div class="form-group form-group-lg pull-right">
-         <input type="button" value="Edit" onclick="editPas({{pas.pasID}})"/>
-        
-    </div>
+	Tip :
+	 	 <input type="text" name="tip" id="tip" placeholder="tip" required autofocus>
+	Naziv:
+	     <input type="text" name="naziv" id="naziv" placeholder="naziv" required>
+
+	Grad:
+	 	 <input type="text" name="grad" id="grad" placeholder="grad" required autofocus>
+	Sifra vlasnika:
+    <input class="table-cell" type="text" name="vlasnikID" id="vlasnikID" value="{{logged.vlasnikID}}" readonly>            
+	     <button class="btn btn-lg btn-primary btn-block" type="submit"> Kreiraj </button>
+	Vrati se na pocetnu stranu <a href="/vlasnikForma">link</a>
     </form>
-    
     <br>
 <footer class="footer-distributed">
 
@@ -445,7 +433,8 @@
 
 				<div class="footer-icons">
 
-					<a href="https://github.com/JelenaRalevic/onlineizlozbaclj"><i class="fa fa-github"></i></a>
+
+					<a href="https://github.com/JelenaRalevic/onlineizlozbaclj"<i class="fa fa-github"></i></a>
 
 				</div>
 

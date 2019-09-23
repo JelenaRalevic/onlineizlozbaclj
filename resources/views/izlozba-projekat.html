@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
- 
 <style>
+
 	html,body{
 	 background: white;
-	 justify-content: center;
+	justify-content: center;
 	 align-items: center;
 	 height: 100%;
 	}
@@ -18,16 +18,6 @@
 	  padding: 20px;
 	  text-align: center;
 	  background: #ddd;
-	}
-	#bg {
-	  position: fixed;
-	  left: 0;
-	  top: 0;
-	  width: 100%;
-	  height: 100%;
-	  background: url("../images/ban1.jpg") no-repeat center center fixed;
-	  background-size: cover;
-	  -webkit-filter: blur(5px);
 	}
 	
 	form {
@@ -58,7 +48,22 @@
 	  text-shadow: 0 1px 0 rgba(0,0,0,.1);
 	  margin-bottom: 10px;
 	}
-	.table-cell-1{
+	
+
+	
+	form button[type=submit] {
+	  color: #3f898a;
+	  text-shadow: 0 1px 0 #133d3e;
+	  text-transform: uppercase;
+
+	  border-top-color: #9fb5b5;
+	  border-left-color: #608586;
+	  border-bottom-color: #1b4849;
+	  border-right-color: #1e4d4e;
+	  cursor: pointer;
+	}
+
+			.table-cell-1{
 		    vertical-align:middle;
 		/*     padding: 5px 0; */
 		    background: #F5F5DC;
@@ -69,24 +74,42 @@
 		    border-style: hidden;
 		    visibility: hidden;
 		}
-	form input:focus { background-color: rgba(0,0,0,.4); }
-
 	
-	::-webkit-input-placeholder { color: #ccc;  }
-	::-moz-placeholder { color: #ccc;  }
-	:-ms-input-placeholder { color: #ccc;  }
-	
-	form button[type=submit] {
-	  color: #3f898a;
-	  text-shadow: 0 1px 0 #133d3e;
-	  text-transform: uppercase;
-	  background: #ffdf80;
-	  border-top-color: #9fb5b5;
-	  border-left-color: #608586;
-	  border-bottom-color: #1b4849;
-	  border-right-color: #1e4d4e;
-	  cursor: pointer;
-	}
+		
+		.header h1 {
+		  font-size: 40px;
+		}
+		
+		.navbar {
+		  overflow: hidden;
+		  background-color: #91A3EB;
+		  position: sticky;
+		  position: -webkit-sticky;
+		  top: 0;
+		}
+		
+		.navbar a {
+		  float: left;
+		  display: block;
+		  color: white;
+		  text-align: center;
+		  padding: 14px 20px;
+		  text-decoration: none;
+		}
+		
+		.navbar a.right {
+		  float: right;
+		}
+		
+		.navbar a:hover {
+		  background-color: #ddd;
+		  color: black;
+		}
+		
+		.navbar a.active {
+		  background-color: #666;
+		  color: white;
+		}
 .header {
   padding: 80px;
   text-align: center;
@@ -293,43 +316,10 @@
 		float: none;
 	}
 }	
-			
 		
-		.header h1 {
-		  font-size: 40px;
-		}
-		
-		.navbar {
-		  overflow: hidden;
-		  background-color: #91A3EB;
-		  position: sticky;
-		  position: -webkit-sticky;
-		  top: 0;
-		}
-		
-		.navbar a {
-		  float: left;
-		  display: block;
-		  color: white;
-		  text-align: center;
-		  padding: 14px 20px;
-		  text-decoration: none;
-		}
-		
-		.navbar a.right {
-		  float: right;
-		}
-		
-		.navbar a:hover {
-		  background-color: #ddd;
-		  color: black;
-		}
-		
-		.navbar a.active {
-		  background-color: #666;
-		  color: white;
-		}
 </style>
+
+   
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -351,80 +341,91 @@
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
    <meta charset="ISO-8859-1">
-     <script>
+   
+        <script>
 
-     function editPas() {
+     function editIzlozba() {
     	 
 		    var params = new FormData();
-		    params.append("pasID", $("#pasID").val());
-		    params.append("ime", $("#ime").val());
-		    params.append("boja", $("#boja").val());
-		    params.append("rasa", $("#rasa").val());
-		    params.append("sampion", $("#sampion").val());
-		    params.append("slika", $("#slika").val());
-		    params.append("opis", $("#opis").val());
+		    params.append("izlozbaID", $("#izlozbaID").val());
+		    params.append("tip", $("#tip").val());
+		    params.append("naziv", $("#naziv").val());
+		    params.append("grad", $("#grad").val());
 		    params.append("vlasnikID", $("#vlasnikID").val());
+		    params.append("godinaZavrsetka", $("#godinaZavrsetka").val());
 		    
 		    $.ajax({
 		        type: "PUT",
-		        url: "/pas",
+		        url: "/izlozba",
 		        data: params,
 		        dataType: 'json',
 		        processData: false,
 		        contentType: false,
 		        success: function(data) {
 		        	
-		        	 window.location = "/pretragavl";
+		        	 window.location = "/pretragaizlozbi";
 		        }
 		    });
 		
 		}
 		
-		
+		function deleteIzlozba(izlozbaID) {
+		    $.ajax({
+		        type: "DELETE",
+		        url: "/izlozba",
+		        data: {
+		        	izlozbaID: izlozbaID
+		        },
+		        dataType: 'json',
+		        success: function(data) {
+		        	
+		            window.location = "/pretragaizlozbi";
+		            
+		        }
+		    });
+		}
    
    </script>
-<title>Izmeni psa</title>
+   <title>Izmeni izlozbu</title>
 </head>
+
 <body>
 		<div class="header">
 		  <h1>Dobrodosao {{logged.imePrezime}}!</h1>
-		<h3> Izmeni psa </h3>
+		  <h3> Izmeni izlozbu </h3>
 		</div>
 		
-		<div class="navbar">
+			<div class="navbar">
 		 <a href="/addpas">Dodaj tvog psa</a>
          <a href="/pretragavl">Pregled pasa</a>
          <a href="/addizlozba">Dodaj izlozbu</a>
          <a href="/pretragaizlozbi">Pregled izlozbi</a>                
          <a href="/vlogout" class="right">Izloguj se sa naloga</a>
 		</div>
-	<form action="" name="pas"  method="post">
-	ID psa:
-    <input class="table-cell" type="text" name="pasID" id="pasID" value="{{pas.pasID}}" readonly>
-	Ime:
-	 	 <input type="text" name="ime" id="ime" placeholder="ime"  value = "{{pas.ime}}" required autofocus>
-	Boja:
-	     <input type="text" name="boja" id="boja" placeholder="boja"  value = "{{pas.boja}}" required>
-	Rasa:
-	 	 <input type="text" name="rasa" id="rasa" placeholder="rasa"  value = "{{pas.rasa}}" required autofocus>
-	Sampion:
-         <input class="table-cell" type="text" name="sampion" id="sampion" value="{{pas.sampion}}">
-	Slika:
-	 	 <input type="text" name="slika" id="slika" placeholder="slika"  value = "{{pas.slika}}" required autofocus>
-	Opis:
-	     <input type="text" name="opis" id="opis" placeholder="opis"  value = "{{pas.opis}}" required>
+	<form action="" name="izlozba"  method="post">
+	ID izlozbe:
+    <input class="table-cell" type="text" name="izlozbaID" id="izlozbaID" value="{{izlozba.izlozbaID}}" readonly>
+		
+	Tip:
+	 	 <input type="text" name="tip" id="tip" placeholder="tip" value="{{izlozba.tip}}" required autofocus>
+	Naziv:
+	     <input type="text" name="naziv" id="naziv" placeholder="naziv" value="{{izlozba.naziv}}" required>
+
+	Grad:
+	 	 <input type="text" name="grad" id="grad" placeholder="grad" value="{{izlozba.grad}}" required autofocus>
+    
     
     <input class="table-cell-1" type="text" name="vlasnikID" id="vlasnikID" value="{{logged.vlasnikID}}">
-		            
-	
-	<a href="/vlasnikForma"> Povratak na glavnu formu. </a>	 
-	<div class="form-group form-group-lg pull-right">
-         <input type="button" value="Edit" onclick="editPas({{pas.pasID}})"/>
-        
+		
+	<a href="/vlasnikForma"> Povratak na glavnu formu. </a>	            
+    <div class="form-group form-group-lg pull-right">
+         <input type="button" value="Edit" onclick="editIzlozba({{izlozba.izlozbaID}})"/>
     </div>
+	
     </form>
     
     <br>
+
 <footer class="footer-distributed">
 
 		<div class="footer-left">
@@ -445,6 +446,7 @@
 
 				<div class="footer-icons">
 
+
 					<a href="https://github.com/JelenaRalevic/onlineizlozbaclj"><i class="fa fa-github"></i></a>
 
 				</div>
@@ -462,7 +464,6 @@
 				</form>
 			</div>
 </footer>
-	
 
 </body>
 </html>

@@ -1,92 +1,77 @@
-<!DOCTYPE html>
 <html>
 <head>
- 
-<style>
-	html,body{
-	 background: white;
-	 justify-content: center;
-	 align-items: center;
-	 height: 100%;
-	}
-	
-	.login {
-	  display: inline-block;
-	}
-	/* Footer */
-	.footer {
-	  padding: 20px;
-	  text-align: center;
-	  background: #ddd;
-	}
-	#bg {
-	  position: fixed;
-	  left: 0;
-	  top: 0;
-	  width: 100%;
-	  height: 100%;
-	  background: url("../images/ban1.jpg") no-repeat center center fixed;
-	  background-size: cover;
-	  -webkit-filter: blur(5px);
-	}
-	
-	form {
-	  position: relative;
-	  width: 100%;
-	  margin: 2 auto;
-	  background: rgba(130,130,130,.3);
-	  padding: 40px 40px;
-	  border: 1px solid;
-	  border-top-color: rgba(255,255,255,.4);
-	  border-left-color: rgba(255,255,255,.4);
-	  border-bottom-color: rgba(60,60,60,.4);
-	  border-right-color: rgba(60,60,60,.4);
-	}
-	
-	form input, form button {
-	  width: 100%;
-	  border: 1px solid;
-	  border-bottom-color: rgba(255,255,255,.5);
-	  border-right-color: rgba(60,60,60,.35);
-	  border-top-color: rgba(60,60,60,.35);
-	  border-left-color: rgba(80,80,80,.45);
-	  background-color: rgba(0,0,0,.2);
-	  background-repeat: no-repeat;
-	  padding: 10px 10px 10px 10px;
-	  letter-spacing: .075em;
-	  color: #fff;
-	  text-shadow: 0 1px 0 rgba(0,0,0,.1);
-	  margin-bottom: 10px;
-	}
-	.table-cell-1{
-		    vertical-align:middle;
-		/*     padding: 5px 0; */
-		    background: #F5F5DC;
-		    text-align: center;
-		    margin: 0 0 0px 0;
-		    font-size: 18px;
-		    color: black;
-		    border-style: hidden;
-		    visibility: hidden;
-		}
-	form input:focus { background-color: rgba(0,0,0,.4); }
 
-	
-	::-webkit-input-placeholder { color: #ccc;  }
-	::-moz-placeholder { color: #ccc;  }
-	:-ms-input-placeholder { color: #ccc;  }
-	
-	form button[type=submit] {
-	  color: #3f898a;
-	  text-shadow: 0 1px 0 #133d3e;
-	  text-transform: uppercase;
-	  background: #ffdf80;
-	  border-top-color: #9fb5b5;
-	  border-left-color: #608586;
-	  border-bottom-color: #1b4849;
-	  border-right-color: #1e4d4e;
-	  cursor: pointer;
-	}
+	<style>
+	body {
+		  margin: 0;
+		}
+		
+		ul {
+		  list-style-type: none;
+		  margin: 0;
+		  padding: 0;
+		  width: 25%;
+		  background-color: #f1f1f1;
+		  position: fixed;
+		  height: 100%;
+		}
+		
+		li a {
+		  display: block;
+		  color: #000;
+		  padding: 8px 16px;
+		  text-decoration: none;
+		}
+		
+		li a.active {
+		  background-color: #4CAF50;
+		}
+		
+		li a:hover:not(.active) {
+		  background-color: #555;
+		  color: white;
+		}
+		tr:hover { 
+		   background: white; 
+		}
+		td a { 
+		   display: block; 
+		   border: 1px solid black;
+		   padding: 16px; 
+		}
+		.navigation {		   
+		    top: 0;
+		    width: 100%;
+		}
+		
+		.table {
+		  display: table;
+		}
+		
+		.row {
+		  display: table-row;
+		}
+		
+		.cell {
+		  display: table-cell;
+		  padding: 10px;
+		}
+		
+		.row:hover {
+		  background-color: #cccccc;
+		}
+		
+		.cell:hover {
+		  background-color: #e5e5e5;
+		}
+				
+		td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
+						body {
+		  font-family: Arial, Helvetica, sans-serif;
+		  margin: 0;
+		}
+		
+		
 .header {
   padding: 80px;
   text-align: center;
@@ -292,13 +277,17 @@
 	.footer-distributed form button{
 		float: none;
 	}
-}	
-			
+}		
 		
 		.header h1 {
 		  font-size: 40px;
 		}
-		
+		/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
 		.navbar {
 		  overflow: hidden;
 		  background-color: #91A3EB;
@@ -306,7 +295,7 @@
 		  position: -webkit-sticky;
 		  top: 0;
 		}
-		
+				
 		.navbar a {
 		  float: left;
 		  display: block;
@@ -329,7 +318,9 @@
 		  background-color: #666;
 		  color: white;
 		}
-</style>
+
+   </style>
+   
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -339,8 +330,7 @@
 	<link rel="stylesheet" href="css/footer-distributed-with-contact-form.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
-
-	
+<title>Prikaz usera</title>
    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
    <link href='http://fonts.googleapis.com/css?family=Stint+Ultra+Condensed' rel='stylesheet' type='text/css'>
    <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
@@ -351,80 +341,80 @@
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
    <meta charset="ISO-8859-1">
-     <script>
+	<script>
+	function searchUser(text) {
+	    $.ajax({
+	        type: "GET",
+	        url: "/useri",
+	        data: {
+	            text: text
+	        },
+	        dataType: 'json',
+	        success: function(data) {
+	            var tableData = "";
+	            if (data != null) {
+	                for (var i = 0; i < data.length; i++) {
+	                    tableData += "<tr>";
+	                    tableData += "<tr id='" + data[i].id + " class='clickable-row'>";
+	                    tableData += "<td>" + data[i].userID + "</td>";
+	                    tableData += "<td>" + data[i].imePrezime + "</td>";
+	                    tableData += "<td>" + data[i].username + "</td>";
+	                    tableData += "<td>" + data[i].email + "</td>";
+	                    tableData += "<td>" + data[i].rola + "</td>";
+	                    tableData += "<tr>";
+	                }
+	            }
+	            $("#table-useri tbody").html(tableData);
+	        },
+	        error: function(xhr, status, error) {
+	            showErrorMessage(xhr.responseText);
+	        }
+	    });
+	}
+	
+	</script>
 
-     function editPas() {
-    	 
-		    var params = new FormData();
-		    params.append("pasID", $("#pasID").val());
-		    params.append("ime", $("#ime").val());
-		    params.append("boja", $("#boja").val());
-		    params.append("rasa", $("#rasa").val());
-		    params.append("sampion", $("#sampion").val());
-		    params.append("slika", $("#slika").val());
-		    params.append("opis", $("#opis").val());
-		    params.append("vlasnikID", $("#vlasnikID").val());
-		    
-		    $.ajax({
-		        type: "PUT",
-		        url: "/pas",
-		        data: params,
-		        dataType: 'json',
-		        processData: false,
-		        contentType: false,
-		        success: function(data) {
-		        	
-		        	 window.location = "/pretragavl";
-		        }
-		    });
-		
-		}
-		
-		
-   
-   </script>
-<title>Izmeni psa</title>
 </head>
 <body>
 		<div class="header">
-		  <h1>Dobrodosao {{logged.imePrezime}}!</h1>
-		<h3> Izmeni psa </h3>
+		  <h1>Zdravo {{logged.imePrezime}}!</h1>
 		</div>
 		
 		<div class="navbar">
-		 <a href="/addpas">Dodaj tvog psa</a>
-         <a href="/pretragavl">Pregled pasa</a>
-         <a href="/addizlozba">Dodaj izlozbu</a>
-         <a href="/pretragaizlozbi">Pregled izlozbi</a>                
-         <a href="/vlogout" class="right">Izloguj se sa naloga</a>
+		  <a href="/psi">Psi</a>
+          <a href="/pretraga">Pretraga pasa</a>
+          <a href="/izlozbe">Izlozbe</a>
+          <a href="/pobednici">Pobednici</a>                       
+          <a href="/logout" class="right">Izloguj se sa naloga</a>
 		</div>
-	<form action="" name="pas"  method="post">
-	ID psa:
-    <input class="table-cell" type="text" name="pasID" id="pasID" value="{{pas.pasID}}" readonly>
-	Ime:
-	 	 <input type="text" name="ime" id="ime" placeholder="ime"  value = "{{pas.ime}}" required autofocus>
-	Boja:
-	     <input type="text" name="boja" id="boja" placeholder="boja"  value = "{{pas.boja}}" required>
-	Rasa:
-	 	 <input type="text" name="rasa" id="rasa" placeholder="rasa"  value = "{{pas.rasa}}" required autofocus>
-	Sampion:
-         <input class="table-cell" type="text" name="sampion" id="sampion" value="{{pas.sampion}}">
-	Slika:
-	 	 <input type="text" name="slika" id="slika" placeholder="slika"  value = "{{pas.slika}}" required autofocus>
-	Opis:
-	     <input type="text" name="opis" id="opis" placeholder="opis"  value = "{{pas.opis}}" required>
-    
-    <input class="table-cell-1" type="text" name="vlasnikID" id="vlasnikID" value="{{logged.vlasnikID}}">
-		            
-	
-	<a href="/vlasnikForma"> Povratak na glavnu formu. </a>	 
-	<div class="form-group form-group-lg pull-right">
-         <input type="button" value="Edit" onclick="editPas({{pas.pasID}})"/>
-        
-    </div>
-    </form>
-    
-    <br>
+		<div> <p>U narednoj tabeli se nalazi lista usera koji imaju nalog.</p></div>
+		<div class="row">
+           <input type="text" name="search" placeholder="Pretraga ..." onkeyup="searchUser(this.value);" autofocus/>
+           <br>
+           <br>
+           <table id="table-useri" class="table">
+            <thead>
+              <th>ID</th>
+              <th>Ime i prezime</th>
+              <th>Username</th>
+              <th>Email</th> 
+              <th>Rola</th>              
+ 			 </thead>
+ 			  
+             <tbody>
+              {% for u in useri %}
+               <tr id="{{u.userID}}">
+               <td>{{u.userID}}</td>
+               <td>{{u.imePrezime}}</td>
+               <td>{{u.username}}</td>
+               <td>{{u.email}}</td>
+               <td>{{u.rola}}</td>                            
+               </tr>
+               {% endfor %}
+              
+             </tbody>
+             </table>  
+         </div>
 <footer class="footer-distributed">
 
 		<div class="footer-left">
@@ -455,14 +445,12 @@
 
 				<p>Kontaktirajte nas</p>
 
-				<form action="/vlasnikForma" method="post">
+				<form action="/userForma" method="post">
 					<input type="text" name="email" placeholder="Email" />
 					<textarea name="message" placeholder="Message"></textarea>
 					<button class="btn btn-lg btn-primary btn-block" type="submit">Posalji</button>
 				</form>
 			</div>
 </footer>
-	
-
 </body>
 </html>

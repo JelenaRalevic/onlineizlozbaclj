@@ -36,7 +36,7 @@
 
 (defn get-users []
   (k/select user
-  (k/where {:rola "vlasnik"})))
+  (k/where {:rola "user"})))
 
 (defn update-user [params]
   (k/update user
@@ -153,46 +153,46 @@
             (k/where {:izlozbaID (:izlozbaID params)})))
 
 (k/defentity pobednik
-  (k/table :pobednik))
-
-(defn get-pobednik []
-   (k/select pobednik
-          (k/fields :* [:pas.ime :prasa])
-          (k/join pas (= :pobednik.pasID :pas.pasID))))
-
-(defn find-pobednik-by-user [id]
-  (k/select pobednik
-          (k/fields :* [:pas.ime :prasa])
-          (k/join pas (= :pobednik.pasID :pas.pasID))
-          (k/where {:userID id})))
-
-(defn find-pobednik-by-pas [id]
-  (k/select pobednik
-          (k/fields :* [:pas.ime :prasa])
-      (k/join pas (= :pobednik.pasID :pas.pasID))
+  (k/table :pobednik))
+
+(defn get-pobednik []
+   (k/select pobednik
+          (k/fields :* [:pas.ime :pime])
+          (k/join pas (= :pobednik.pasID :pas.pasID))))
+
+(defn find-pobednik-by-user [id]
+  (k/select pobednik
+          (k/fields :* [:pas.ime :pime])
+          (k/join pas (= :pobednik.pasID :pas.pasID))
+          (k/where {:userID id})))
+
+(defn find-pobednik-by-pas [id]
+  (k/select pobednik
+          (k/fields :* [:pas.ime :pime])
+      (k/join pas (= :pobednik.pasID :pas.pasID))
       (k/where {:pasID id})))
-
-(defn find-pobednik [params]
-  (k/select pobednik
-          (k/fields :* [:pas.ime :prasa])
-          (k/join pas (= :pobednik.pasID :pas.pasID))
-          (k/where params)))
-
-(defn add-pobednik [params]
-  (k/insert pobednik
-  (k/values params)))
-
-(defn delete-pobednik [id]
-  (k/delete pobednik
-  (k/where {:pobednikID id})))
-
-(defn delete-pobednik-pas [pas]
-  (k/delete pobednik
-  (k/where {:pasID pas})))
-
-(defn delete-pobednik-user [user]
-  (k/delete pobednik
-  (k/where {:userID user})))
+
+(defn find-pobednik [params]
+  (k/select pobednik
+          (k/fields :* [:pas.ime :pime])
+          (k/join pas (= :pobednik.pasID :pas.pasID))
+          (k/where params)))
+
+(defn add-pobednik [params]
+  (k/insert pobednik
+  (k/values params)))
+
+(defn delete-pobednik [id]
+  (k/delete pobednik
+  (k/where {:pobednikID id})))
+
+(defn delete-pobednik-pas [pas]
+  (k/delete pobednik
+  (k/where {:pasID pas})))
+
+(defn delete-pobednik-user [user]
+  (k/delete pobednik
+  (k/where {:userID user})))
 
 (defn get-vlasnik []
   (k/select vlasnik))

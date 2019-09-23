@@ -14,6 +14,8 @@
             [onlineizlozbaclj.routes.loginregistration :refer [log-routes]]
             [onlineizlozbaclj.routes.userforma :refer [forme-routes]]
             [onlineizlozbaclj.routes.pas :refer [pas-routes]]
+            [onlineizlozbaclj.routes.izlozba :refer [izlozba-routes]]
+            [onlineizlozbaclj.routes.pobednik :refer [pobednik-routes]]
             [ring.middleware.webjars :refer [wrap-webjars]]
             [ring.middleware.flash :refer [wrap-flash]]
             [buddy.auth.backends.session :refer [session-backend]]
@@ -49,7 +51,7 @@
   (route/not-found "Not Found"))
 
 (def app
-  (-> (routes  home-routes log-routes forme-routes pas-routes app-routes)
+  (-> (routes  home-routes log-routes forme-routes izlozba-routes pas-routes pobednik-routes app-routes)
       (wrap-json-response)
       (handler/site)
       (wrap-authentication backend)
