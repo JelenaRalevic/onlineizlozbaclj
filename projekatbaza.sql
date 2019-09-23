@@ -21,7 +21,7 @@ USE `projekatbaza`;
 DROP TABLE IF EXISTS `izlozba`;
 
 CREATE TABLE `izlozba` (
-  `izlozbaID` int(11) NOT NULL,
+  `izlozbaID` int(11) NOT NULL AUTO_INCREMENT,
   `tip` varchar(255) DEFAULT NULL,
   `naziv` varchar(255) DEFAULT NULL,
   `grad` varchar(255) DEFAULT NULL,
@@ -29,9 +29,13 @@ CREATE TABLE `izlozba` (
   PRIMARY KEY (`izlozbaID`),
   KEY `vlasnikID` (`vlasnikID`),
   CONSTRAINT `izlozba_ibfk_1` FOREIGN KEY (`vlasnikID`) REFERENCES `vlasnik` (`vlasnikID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `izlozba` */
+
+insert  into `izlozba`(`izlozbaID`,`tip`,`naziv`,`grad`,`vlasnikID`) values 
+(1,'International','International Belrage Show2','Belgrade',1),
+(3,'International','International Novi Sad dogshow','Novi Sad',1);
 
 /*Table structure for table `pas` */
 
@@ -44,52 +48,60 @@ CREATE TABLE `pas` (
   `rasa` varchar(255) DEFAULT NULL,
   `sampion` varchar(255) DEFAULT NULL,
   `slika` varchar(255) DEFAULT NULL,
-  `opisPsa` varchar(255) DEFAULT NULL,
+  `opis` varchar(255) DEFAULT NULL,
   `vlasnikID` int(11) NOT NULL,
   PRIMARY KEY (`pasID`),
   KEY `vlasnikID_2` (`vlasnikID`),
   CONSTRAINT `pas_ibfk_2` FOREIGN KEY (`vlasnikID`) REFERENCES `vlasnik` (`vlasnikID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `pas` */
 
-insert  into `pas`(`pasID`,`ime`,`boja`,`rasa`,`sampion`,`slika`,`opisPsa`,`vlasnikID`) values 
-(1,'Kiki','Bela','Maltezer','Drzavni',' ','Veoma umiljat pas',1);
+insert  into `pas`(`pasID`,`ime`,`boja`,`rasa`,`sampion`,`slika`,`opis`,`vlasnikID`) values 
+(1,'Kiki','Bela','Maltezer','Drzavni',' ','Veoma umiljat pas',1),
+(2,'Bingo','zuta','zlatni retriver','drzavni','https://saznajlako.com/wp-content/uploads/2014/04/Zlatni-retriver.jpg','najbolji pas na svetu',1),
+(3,'Leli','crna','jazavicar','evropski','/','najbolji prijateljjjjjjjj',1);
 
-/*Table structure for table `podednik` */
+/*Table structure for table `pobednik` */
 
-DROP TABLE IF EXISTS `podednik`;
+DROP TABLE IF EXISTS `pobednik`;
 
-CREATE TABLE `podednik` (
-  `pobednikID` int(11) NOT NULL,
-  `userID` int(11) DEFAULT NULL,
+CREATE TABLE `pobednik` (
+  `pobednikID` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
   `pasID` int(11) NOT NULL,
   PRIMARY KEY (`pobednikID`),
   KEY `userID` (`userID`),
   KEY `pasID` (`pasID`),
-  CONSTRAINT `podednik_ibfk_2` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`),
-  CONSTRAINT `podednik_ibfk_3` FOREIGN KEY (`pasID`) REFERENCES `pas` (`pasID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `pobednik_ibfk_4` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`),
+  CONSTRAINT `pobednik_ibfk_5` FOREIGN KEY (`pasID`) REFERENCES `pas` (`pasID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
-/*Data for the table `podednik` */
+/*Data for the table `pobednik` */
+
+insert  into `pobednik`(`pobednikID`,`userID`,`pasID`) values 
+(1,1,1),
+(2,2,2);
 
 /*Table structure for table `user` */
 
 DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
-  `userID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL AUTO_INCREMENT,
   `imePrezime` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `rola` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user` */
 
-insert  into `user`(`userID`,`imePrezime`,`email`,`username`,`password`) values 
-(0,'Jelena Ralevic','jeca@gmail.com','jeca','jeca');
+insert  into `user`(`userID`,`imePrezime`,`email`,`username`,`password`,`rola`) values 
+(1,'Mika Mikic','mika@gmail.com','mika','mika','user'),
+(2,'Mina Minic','mina@gmail.com','mina','mina','user');
 
 /*Table structure for table `vlasnik` */
 
@@ -103,12 +115,13 @@ CREATE TABLE `vlasnik` (
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`vlasnikID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `vlasnik` */
 
 insert  into `vlasnik`(`vlasnikID`,`imePrezime`,`grad`,`email`,`username`,`password`) values 
-(1,'Jelena Ralevic','Beograd','jeca@gmail.com','jeca','jeca');
+(1,'Jelena Ralevic','Beograd','jeca@gmail.com','jeca','jeca'),
+(2,'Zorica','Novi Sad','zoka@gmail.com','zoka','zoka');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
